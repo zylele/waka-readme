@@ -12,7 +12,7 @@ from github import Github, GithubException
 
 START_COMMENT = '<!--START_SECTION:waka-->'
 END_COMMENT = '<!--END_SECTION:waka-->'
-GRAPH_LENGTH = 25
+GRAPH_LENGTH = 22
 listReg = f"{START_COMMENT}[\\s\\S]+{END_COMMENT}"
 
 repository = os.getenv('INPUT_REPOSITORY')
@@ -68,7 +68,7 @@ def get_stats() -> str:
         # following line provides a neat finish
         fmt_percent = format(lang['percent'], '0.2f').zfill(5)
         data_list.append(
-            f"{lang['name']}{' '*(pad + 2 - lth)}{lang['text']}{' '*(16 - ln_text)}{make_graph(lang['percent'], blocks)}  {fmt_percent} %")
+            f"{lang['name']}{' '*(pad + 2 - lth)}{lang['text']}{' '*(15 - ln_text)}{make_graph(lang['percent'], blocks)}  {fmt_percent} %")
     print("Graph Generated")
     data = '\n'.join(data_list)
     if show_title == 'true':
